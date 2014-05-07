@@ -43,7 +43,6 @@ typedef struct		s_data
 	char			color;
 	int				win_size_x;
 	int				win_size_y;
-
 }					t_data;
 
 typedef struct		s_philo
