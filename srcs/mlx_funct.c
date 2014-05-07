@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:55:47 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/07 16:56:58 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/07 18:42:13 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ int		eb_expose_hook(t_img *img)
 	t_win		*env;
 
 	env = env_init();
-	mlx_put_image_to_window(env->mlx, env->win, img->img, 0, 0);
+	img->x = 50;
+	img->load_ptr = mlx_xpm_file_to_image(env->mlx, "srcs/philo3.xpm", &img->x, &img->y);
+	mlx_put_image_to_window(env->mlx, env->win, img->load_ptr, 200, 0);
 	return (0);
 }
 

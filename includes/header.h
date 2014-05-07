@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:17:14 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/07 17:01:20 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/07 20:00:52 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,18 @@
 **	MACRO FOR PHILO
 */
 
+# define MAX_LIFE	100
+# define EAT_T
+# define REST_T
+# define THINK_T
+# define TIMEOUT
 
 /*
 **	INCLUDES
 */
 
 # include <mlx.h>
+# include <pthread.h>
 # include "libft.h"
 # include "struct.h"
 

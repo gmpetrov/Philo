@@ -6,12 +6,14 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:51:58 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/07 17:01:21 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/07 20:00:53 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
+
+# include <pthread.h>
 
 typedef struct		s_win
 {
@@ -23,10 +25,13 @@ typedef struct		s_win
 typedef struct		s_img
 {
 	void			*img;
+	void			*load_ptr;
 	char			*data;
 	int				bpp;
 	int				size_line;
 	int				endian;
+	int				x;
+	int				y;
 }					t_img;
 
 
@@ -38,6 +43,16 @@ typedef struct		s_data
 	char			color;
 	int				win_size_x;
 	int				win_size_y;
+
 }					t_data;
+
+typedef struct		s_philo
+{
+	int				id;
+	pthread_t		thread_philo;
+	int				life;
+	struct s_philo	*prev;
+	struct s_philo	*next;
+}					t_philo;
 
 #endif
