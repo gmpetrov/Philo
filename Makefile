@@ -6,12 +6,12 @@
 #    By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/02/15 00:09:57 by ebaudet           #+#    #+#              #
-#    Updated: 2014/05/07 16:59:20 by gpetrov          ###   ########.fr        #
+#    Updated: 2014/05/07 18:11:24 by ebaudet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= philo
-FILES	= main.c mlx_funct.c init_funct.c
+FILES	= main.c mlx_funct.c init_funct.c error.c
 SRCS	= $(addprefix srcs/, $(FILES))
 OBJS	= $(SRCS:srcs/%.c=.obj/%.o)
 INC		= -I includes -I libft/includes

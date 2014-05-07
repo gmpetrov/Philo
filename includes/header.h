@@ -52,4 +52,9 @@ void	eb_mlx(void);
 int		eb_expose_hook(t_img *img);
 int		eb_mlx_key_hook(int keycode);
 
+/*
+** error.c
+*/
+void	ft_error(char *str);
+
 #endif
