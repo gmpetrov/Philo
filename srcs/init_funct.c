@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:57:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/07 17:01:19 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/07 18:15:07 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ t_data	*data_init(void)
 	if (data == NULL)
 	{
 		if (!(data = (t_data *)malloc(sizeof(t_data))))
-		{
-/*			ft_error("erreur malloc");*/
-			exit(0);
-		}
+			ft_error("erreur malloc");
 	}
 	return (data);
 }
@@ -35,10 +32,7 @@ t_win	*env_init(void)
 	if (win == NULL)
 	{
 		if (!(win = (t_win *)malloc(sizeof(t_win))))
-		{
-		/*	ft_error("erreur malloc");*/
-			exit(0);
-		}
+			ft_error("erreur malloc");
 		win->mlx = mlx_init();
 		win->win = mlx_new_window(win->mlx, WIDTH, HEIGHT
 			, NAME);
@@ -59,5 +53,3 @@ t_img		*img_init(void)
 		, &img->endian);
 	return (img);
 }
-
-
