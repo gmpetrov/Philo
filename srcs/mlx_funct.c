@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_funct.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:55:47 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/07 18:42:13 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/08 19:12:00 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		eb_expose_hook(t_img *img)
 	env = env_init();
 	img->x = 50;
 	// img->load_ptr = mlx_xpm_file_to_image(env->mlx, "srcs/philo3.xpm", &img->x, &img->y);
-	img->load_ptr = choose_img("./srcs/philosophie.xpm", &img->x, &img->y);
+	img->load_ptr = choose_img("./srcs/penseur_drole_de_rod.xpm", &img->x, &img->y);
 	mlx_put_image_to_window(env->mlx, env->win, img->load_ptr, 200, 0);
 	return (0);
 }

@@ -14,7 +14,7 @@ NAME	= philo
 FILES	= main.c mlx_funct.c init_funct.c error.c
 SRCS	= $(addprefix srcs/, $(FILES))
 OBJS	= $(SRCS:srcs/%.c=.obj/%.o)
-INC		= -I includes -I libft/includes
+INC		= -I includes -I libft/includes -I /usr/X11/include
 FLAGS	= -Wall -Wextra -Werror
 LIB		= -L libft -lft
 LIBMLX	= -L /usr/X11/lib -lmlx -lXext -lX11

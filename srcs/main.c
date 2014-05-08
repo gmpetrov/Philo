@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/07 20:19:27 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/08 18:13:35 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,10 @@ void	philo(t_data *data)
 
 int		main(void)
 {
-	t_data	data;
+	/*t_data	data;*/
 
 	ft_putstr("ZBRA?\n");
-	philo(&data);
-	/*eb_mlx();*/
+	/*philo(&data);*/
+	eb_mlx();
 	return (0);
 }
