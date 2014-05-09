@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:17:14 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/07 20:00:52 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/09 15:13:48 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@
 */
 
 # define MAX_LIFE	100
-# define EAT_T
-# define REST_T
-# define THINK_T
-# define TIMEOUT
-
+# define EAT_T		2
+# define REST_T		2
+# define THINK_T	2
+# define TIMEOUT	50
+# define NB_PHILO	7
 /*
 **	INCLUDES
 */
@@ -47,7 +47,7 @@
 
 t_data	*data_init(void);
 t_win	*env_init(void);
-t_img		*img_init(void);
+t_img	*img_init(void);
 void	eb_mlx(void);
 int		eb_expose_hook(t_img *img);
 int		eb_mlx_key_hook(int keycode);

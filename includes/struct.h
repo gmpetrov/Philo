@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:51:58 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/07 20:00:53 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/09 15:14:05 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct		s_img
 	int				x;
 	int				y;
 }					t_img;
-
 
 typedef struct		s_data
 {
