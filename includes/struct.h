@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:51:58 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/09 15:14:05 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/09 22:37:00 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct		s_philo
 {
 	int				id;
 	pthread_t		thread_philo;
+	char			status;
 	int				life;
 	struct s_philo	*prev;
 	struct s_philo	*next;

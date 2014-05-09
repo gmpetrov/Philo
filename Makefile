@@ -6,16 +6,16 @@
 #    By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/02/15 00:09:57 by ebaudet           #+#    #+#              #
-#    Updated: 2014/05/08 19:36:55 by ebaudet          ###   ########.fr        #
+#    Updated: 2014/05/09 22:33:30 by gpetrov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= philo
-FILES	= main.c mlx_funct.c init_funct.c error.c
+FILES	= main.c mlx_funct.c init_funct.c error.c tools.c
 SRCS	= $(addprefix srcs/, $(FILES))
 OBJS	= $(SRCS:srcs/%.c=.obj/%.o)
 INC		= -I includes -I libft/includes -I /usr/X11/include
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -lpthread
 LIB		= -L libft -lft
 LIBMLX	= -L /usr/X11/lib -lmlx -lXext -lX11
 CC		= cc

@@ -6,64 +6,72 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/08 18:13:35 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/10 00:10:59 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "header.h"
 
-t_philo	*create_philo(t_philo *philo, int i)
+int				p_fork[NB_PHILO];
+t_philo			philosophe[NB_PHILO];
+pthread_mutex_t	mute = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t	forks[NB_PHILO];
+
+void	*actions(void *data)
 {
-	t_philo	*new;
-	t_philo	*tmp;
+	t_philo	*philo;
+	time_t	start;
 
-	new = (t_philo *)malloc(sizeof(t_philo));
-	new->life = MAX_LIFE;
-	new->id = i;
-	new->prev = NULL;
-	new->next = NULL;
-	philo->prev = new;
-	tmp = philo;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = new;
-	new->prev = tmp;
-	return (philo);
-}
-
-t_philo	*make_it_circular(t_philo *philo)
-{
-	t_philo	*tmp;
-
-	tmp = philo;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = philo;
-	return (philo);
-}
-
-void	test(t_philo *philo)
-{
-	t_philo *tmp;
-
-	tmp = philo;
-	while(42)
+	philo = (t_philo *)data;
+	start = time(NULL);
+	(void)philo;
+	while (42)
 	{
-		ft_putnbr(tmp->id);
-		write(1, "\n", 1);
-		usleep(100000);
-		if (tmp->id == 7)
-			write(1, "\n", 1);
-		tmp = tmp->next;
+		/* TEST TIMEOUT */
+		if (time(NULL) > start + TIMEOUT)
+		{
+			ft_putstr("Now, it is time... To DAAAAAAAANCE!!!\n");
+			exit(0);
+		}
+	}
+
+	return (NULL);
+}
+
+void	init(void)
+{
+	int	i;
+
+	i = 0;
+	while (i < NB_PHILO)
+	{
+		philosophe[i].id = i;
+		philosophe[i].life = MAX_LIFE; 
+		philosophe[i].status = 'R';
+		p_fork[i] = 0;	
+		pthread_mutex_init(&(forks[i]), NULL);
+		pthread_create(&(philosophe[i].thread_philo), NULL, actions, &(philosophe[i]));
+		i++;
 	}
 }
 
 void	philo(t_data *data)
 {
-	t_philo	*philo;
+	/*t_philo	*philo;*/
 	int		i;
 
+	i = 0;
 	(void)data;
+	ft_putstr("Init Threads\n");
+	init();
+	while (i < NB_PHILO)
+	{
+		pthread_join(philosophe[i].thread_philo, NULL);
+		i++;
+	}
+	ft_putstr("End Threads\n");
+	/*
 	philo = (t_philo *)malloc(sizeof(t_philo));
 	philo->id = 1;
 	philo->life = MAX_LIFE;
@@ -76,14 +84,15 @@ void	philo(t_data *data)
 	philo = make_it_circular(philo);
 	test(philo);
 	ft_putstr("Salut ca va ?\n");
+	*/
 }
 
 int		main(void)
 {
-	/*t_data	data;*/
+	t_data	data;
 
 	ft_putstr("ZBRA?\n");
-	/*philo(&data);*/
+	philo(&data);
 	eb_mlx();
 	return (0);
 }
