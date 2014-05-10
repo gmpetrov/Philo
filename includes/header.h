@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:17:14 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/09 22:58:13 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/10 17:59:41 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define EAT_T		2
 # define REST_T		2
 # define THINK_T	2
-# define TIMEOUT	5
+# define TIMEOUT	60
 # define NB_PHILO	7
 /*
 **	INCLUDES
