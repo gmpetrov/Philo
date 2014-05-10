@@ -6,7 +6,7 @@
 #    By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/02/15 00:09:57 by ebaudet           #+#    #+#              #
-#    Updated: 2014/05/09 22:33:30 by gpetrov          ###   ########.fr        #
+#    Updated: 2014/05/10 19:04:58 by ebaudet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ FILES	= main.c mlx_funct.c init_funct.c error.c tools.c
 SRCS	= $(addprefix srcs/, $(FILES))
 OBJS	= $(SRCS:srcs/%.c=.obj/%.o)
 INC		= -I includes -I libft/includes -I /usr/X11/include
-FLAGS	= -Wall -Wextra -Werror -lpthread
-LIB		= -L libft -lft
+FLAGS	= -Wall -Wextra -Werror
+LIB		= -L libft -lft -lpthread
 LIBMLX	= -L /usr/X11/lib -lmlx -lXext -lX11
 CC		= cc
 
