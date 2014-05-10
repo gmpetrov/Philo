@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 19:16:18 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/10 19:21:01 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,7 @@ void	eat(t_philo *philo)
 	usleep(EAT_T * 1000000);
 	philo->life = MAX_LIFE;
 	
-	printf("Philosophe %d finished eating and has %d life points\n", philo->id, philo->life);
-	
+	print_eat(philo, 2);	
 	pthread_mutex_lock(&forks);
 	p_fork[philo->id] = 0;
 	p_fork[(philo->id + 1) % NB_PHILO] = 0;
@@ -102,8 +101,7 @@ void	think(t_philo *philo)
 	p_fork[philo->id] = 1;
 	pthread_mutex_unlock(&forks);
 
-	printf("Philosophe %d is thinking\n", philo->id);
-
+	print_think(philo, 1);
 	usleep(THINK_T * 1000000);
 	philo->life -= THINK_T;
 	if (philo->life <= 0)
@@ -112,7 +110,7 @@ void	think(t_philo *philo)
 		printf("Philosophe %d is dead\n- THE END -\n", philo->id);
 		exit(0);
 	}
-	printf("Philosophe %d finished thinkig and has %d life points\n", philo->id, philo->life);
+	print_think(philo, 2);
 	while (philo->status != 'E')
 	{
 		pthread_mutex_lock(&forks);
