@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:17:14 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 17:59:41 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/10 19:14:36 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 t_data	*data_init(void);
 t_win	*env_init(void);
 t_img	*img_init(void);
-void	eb_mlx(void);
+void	*eb_mlx(void *unuse);
 int		eb_expose_hook(t_img *img);
 int		eb_mlx_key_hook(int keycode);
 

@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 18:24:19 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/10 19:15:31 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,10 +163,11 @@ void	philo(t_data *data)
 
 int		main(void)
 {
-	t_data	data;
+	t_data		data;
+	pthread_t	thread_graphique;
 
 	ft_putstr("ZBRA?\n");
+	pthread_create(&thread_graphique, NULL, eb_mlx, NULL);
 	philo(&data);
-	eb_mlx();
 	return (0);
 }
