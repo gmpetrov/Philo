@@ -1,0 +1,67 @@
+
+----------------
+Initialisation :
+----------------
+philosophe n :
+	left_hand : baguette n
+	right_hand : baguette (n + 1) % NB_PHILO
+
+Timeout :
+	block le mutex forks[NB_PHILO];
+	wait TIMEOUT
+	si etat = OK
+		message de fin
+		libère tous les thread
+
+life :
+	boucle (par philosophe dans des threads séparés)
+		si philo->sate != EAT
+			wait TIME_DEATH
+			life -= 1
+		si life <= 0
+			etat = DEAD
+
+
+---------
+Actions :
+---------
+Lancées l'une après l'autre :
+	si Eat sinon think sinon wait
+
+Eat :
+	si state = EAT
+		retourne FAUX
+	Si left_hand et right_hand sont libre (test avec pthread_mutex_trylock())
+		state : EAT
+		wait EAT_T
+		life = MAX_LIFE
+		libère les baguettes avec pthread_mutex_unlock()
+	Sinon
+		libère les baguettes
+		retourne FAUX
+
+Think :
+	si state = THINK
+		retourne FAUX
+	Si left_hand ou right_hand est libre (test avec pthread_mutex_trylock())
+		state : THINK
+		libère la baguette
+		wait THINK_T
+	Sinon
+		retourne FAUX
+
+Wait :
+	state = WAIT
+	wait REST_T
+
+
+-----------
+Affichage :
+-----------
+Boucle sur tous les philosophe et leurs états pour afficher le niveau courant
+à effectuer dans un thread à part.
+
+fonction d'affichage :
+	position selon philosophe (autour d'un cercle)
+	cas : EAT | THINK | WAIT
+	État de la barre de vie du philosophe.
