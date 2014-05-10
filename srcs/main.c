@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 19:21:01 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/10 19:22:47 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ void	print_rest(t_philo *philo, int version)
 		write(1, " life points\n", ft_strlen(" life points\n"));
 	}
 }
-
-
 
 void	eat(t_philo *philo)
 {
