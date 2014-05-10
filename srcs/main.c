@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 18:24:19 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/10 19:16:18 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,66 @@
 
 int				p_fork[NB_PHILO];
 t_philo			philosophe[NB_PHILO];
-pthread_mutex_t	mute = PTHREAD_MUTEX_INITIALIZER;
-/*pthread_mutex_t	forks[NB_PHILO];*/
 pthread_mutex_t	forks;
+
+void	print_eat(t_philo *philo, int version)
+{
+	if (version == 1)
+	{
+		write(1, "Philosophe ", ft_strlen("Philosophe "));
+		ft_putnbr(philo->id);
+		write(1, " is eating\n", ft_strlen(" is eating\n"));
+	}
+	else
+	{
+		write(1, "Philosophe ", ft_strlen("Philosophe "));
+		ft_putnbr(philo->id);
+		write(1, " finished eating and has ",
+				ft_strlen(" finished eating and has "));
+		ft_putnbr(philo->life);
+		write(1, " life points\n", ft_strlen(" life points\n"));
+	}
+}
+
+void	print_think(t_philo *philo, int version)
+{
+	if (version == 1)
+	{
+		write(1, "Philosophe ", ft_strlen("Philosophe "));
+		ft_putnbr(philo->id);
+		write(1, " is thinking\n", ft_strlen(" is thinking\n"));
+	}
+	else
+	{
+		write(1, "Philosophe ", ft_strlen("Philosophe "));
+		ft_putnbr(philo->id);
+		write(1, " finished eating and has ",
+			ft_strlen(" finished eating and has "));
+		ft_putnbr(philo->life);
+		write(1, " life points\n", 1);
+	}
+}
+
+void	print_rest(t_philo *philo, int version)
+{
+	if (version == 1)
+	{
+		write(1, "Philosophe ", ft_strlen("Philosophe "));
+		ft_putnbr(philo->id);
+		write(1, " is resting\n", ft_strlen(" is resting\n"));
+	}
+	else
+	{
+		write(1, "Philosophe ", ft_strlen("Philosophe "));
+		ft_putnbr(philo->id);
+		write(1, " finished resting and has ",
+				ft_strlen(" finished resting and has "));
+		ft_putnbr(philo->life);
+		write(1, " life points\n", ft_strlen(" life points\n"));
+	}
+}
+
+
 
 void	eat(t_philo *philo)
 {
@@ -26,8 +83,8 @@ void	eat(t_philo *philo)
 	p_fork[(philo->id + 1) % NB_PHILO] = 1;
 	pthread_mutex_unlock(&forks);
 
-	printf("Philosophe %d is eating\n", philo->id);
-
+	print_eat(philo, 1);
+	
 	usleep(EAT_T * 1000000);
 	philo->life = MAX_LIFE;
 	
@@ -51,6 +108,7 @@ void	think(t_philo *philo)
 	philo->life -= THINK_T;
 	if (philo->life <= 0)
 	{
+		pthread_mutex_unlock(&forks);
 		printf("Philosophe %d is dead\n- THE END -\n", philo->id);
 		exit(0);
 	}
@@ -86,18 +144,13 @@ void	*actions(void *data)
 
 	philo = (t_philo *)data;
 	start = time(NULL);
-	(void)philo;
 	while (42)
 	{	
-		/* TEST TIMEOUT */
-
 		if (time(NULL) > start + TIMEOUT)
 		{
 			ft_putstr("Now, it is time... To DAAAAAAAANCE!!!\n");
 			exit(0);
 		}
-
-		/* END TEST */
 		pthread_mutex_lock(&forks);
 		left = p_fork[philo->id];
 		right = p_fork[(philo->id + 1) % NB_PHILO];
@@ -123,7 +176,6 @@ void	init(void)
 		philosophe[i].life = MAX_LIFE; 
 		philosophe[i].status = 'R';
 		p_fork[i] = 0;	
-/*		pthread_mutex_init(&(forks[i]), NULL); */
 		p_fork[i] = 0;
 		pthread_create(&(philosophe[i].thread_philo), NULL, actions, &(philosophe[i]));
 		i++;
@@ -132,7 +184,6 @@ void	init(void)
 
 void	philo(t_data *data)
 {
-	/*t_philo	*philo;*/
 	int		i;
 
 	i = 0;
@@ -145,20 +196,6 @@ void	philo(t_data *data)
 		i++;
 	}
 	ft_putstr("End Threads\n");
-	/*
-	philo = (t_philo *)malloc(sizeof(t_philo));
-	philo->id = 1;
-	philo->life = MAX_LIFE;
-	i = 2;
-	while (i <=  7)
-	{
-		philo = create_philo(philo, i);
-		i++;
-	}
-	philo = make_it_circular(philo);
-	test(philo);
-	ft_putstr("Salut ca va ?\n");
-	*/
 }
 
 int		main(void)

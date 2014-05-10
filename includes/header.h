@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:17:14 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 17:59:41 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/10 18:34:20 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 **	MACRO FOR PHILO
 */
 
-# define MAX_LIFE	100
+# define MAX_LIFE	4
 # define EAT_T		2
 # define REST_T		2
 # define THINK_T	2
