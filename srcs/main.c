@@ -196,10 +196,11 @@ void	philo(t_data *data)
 
 int		main(void)
 {
-	t_data	data;
+	t_data		data;
+	pthread_t	thread_graphique;
 
 	ft_putstr("ZBRA?\n");
+	pthread_create(&thread_graphique, NULL, eb_mlx, NULL);
 	philo(&data);
-	eb_mlx();
 	return (0);
 }
