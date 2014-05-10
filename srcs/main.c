@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 17:59:37 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/10 18:24:19 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	think(t_philo *philo)
 	printf("Philosophe %d finished thinkig and has %d life points\n", philo->id, philo->life);
 	while (philo->status != 'E')
 	{
-		pthread_mutex_unlock(&forks);
+		pthread_mutex_lock(&forks);
 		if (p_fork[(philo->id + 1) % NB_PHILO] == 0)
 			eat(philo);
 		else
@@ -103,7 +103,7 @@ void	*actions(void *data)
 		right = p_fork[(philo->id + 1) % NB_PHILO];
 		if (left == 0 && right == 0 && philo->status != 'E')
 			eat(philo);
-		else if (left == 0 && philo->status == 'R')
+		else if (left == 0 && right == 1 && philo->status == 'R')
 			think(philo);
 		else
 			rest(philo);
