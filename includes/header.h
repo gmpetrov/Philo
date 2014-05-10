@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:17:14 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 19:21:17 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/10 22:06:43 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@
 **	MACRO FOR PHILO
 */
 
-# define MAX_LIFE	4
+# define MAX_LIFE	8
 # define EAT_T		2
 # define REST_T		2
 # define THINK_T	2
-# define TIMEOUT	60
+# define TIMEOUT	3
 # define NB_PHILO	7
 /*
 **	INCLUDES
@@ -42,9 +42,16 @@
 # include "struct.h"
 
 /*
+**	GLOBAL VARS
+*/
+int				p_fork[NB_PHILO];
+t_philo			philosophe[NB_PHILO];
+pthread_mutex_t	forks;
+/*
 **	PROTOTYPES
 */
 
+void	fuck(void);
 t_data	*data_init(void);
 t_win	*env_init(void);
 t_img	*img_init(void);
@@ -53,8 +60,26 @@ int		eb_expose_hook(t_img *img);
 int		eb_mlx_key_hook(int keycode);
 
 /*
+**	action.c
+*/
+void	*actions(void *data);
+/*
+**	print.c
+void	*life(void *data)
+void	*life(void *data)
+*/
+void	print_eat(t_philo *philo, int version);
+void	print_think(t_philo *philo, int version);
+void	print_rest(t_philo *philo, int version);
+void	*life(void *data);
+
+/*
 ** error.c
 */
 void	ft_error(char *str);
+
+/*
+**	· −− ·· ·−·· ·· · −·  · ··· −  ·· −·· ·· −−− − 
+*/
 
 #endif
