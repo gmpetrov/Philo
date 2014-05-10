@@ -78,8 +78,4 @@ void	*life(void *data);
 */
 void	ft_error(char *str);
 
-/*
-**	· −− ·· ·−·· ·· · −·  · ··· −  ·· −·· ·· −−− − 
-*/
-
 #endif
