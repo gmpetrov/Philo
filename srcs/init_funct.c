@@ -6,11 +6,13 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:57:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 18:47:23 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/11 22:23:10 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <mlx.h>
 #include "header.h"
+#include "libft.h"
 
 t_data		*data_init(void)
 {

@@ -6,10 +6,11 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:55:47 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 21:41:57 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 22:19:23 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <mlx.h>
 #include "libft.h"
 #include "header.h"
 

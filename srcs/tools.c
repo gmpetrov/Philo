@@ -6,11 +6,12 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/09 22:31:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 18:45:06 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/11 22:23:21 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+#include "libft.h"
 
 t_philo	*create_philo(t_philo *philo, int i)
 {

@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:17:14 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 22:09:12 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 22:28:31 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@
 **	INCLUDE
 */
 
-# include <mlx.h>
 # include <pthread.h>
-# include "libft.h"
 # include "struct.h"
 
 /*

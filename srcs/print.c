@@ -6,11 +6,12 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/10 19:35:16 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 20:00:24 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/11 22:23:32 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+#include "libft.h"
 
 void	print_eat(t_philo *philo, int version)
 {

@@ -6,11 +6,12 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/10 19:46:29 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 22:15:28 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 22:23:43 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+#include "libft.h"
 
 static void		eat(t_philo *philo)
 {
