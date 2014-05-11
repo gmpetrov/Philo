@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:55:47 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 23:40:48 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 18:02:23 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	*eb_mlx(void *unuse)
 	img = img_init();
 	mlx_key_hook(env->win, eb_mlx_key_hook, NULL);
 	mlx_expose_hook(env->win, eb_expose_hook, img);
-	mlx_loop_hook(env->win, eb_loop_hook, NULL);
+	mlx_loop_hook(env->mlx, eb_loop_hook, img);
 
 	mlx_loop(env->mlx);
 	return (NULL);
@@ -91,11 +91,13 @@ void	wich_philo(t_win *env, int i)
 	mlx_string_put(env->mlx, env->win, 70 + i * 100, 20, color_norm(0, 255, 255), ft_itoa(i));
 	mlx_string_put(env->mlx, env->win, 0 + i * 100, 40, color_norm(200, 200, 200), "etat :");
 	if (philosophe[i].status == 'E')
-		mlx_string_put(env->mlx, env->win, 50 + i * 100, 40, color_norm(0, 255, 255), "EAT");
+		mlx_string_put(env->mlx, env->win, 50 + i * 100, 40, color_norm(0, 255, 0), "EAT");
 	else if (philosophe[i].status == 'T')
 		mlx_string_put(env->mlx, env->win, 50 + i * 100, 40, color_norm(0, 255, 255), "THINK");
 	else if (philosophe[i].status == 'R')
 		mlx_string_put(env->mlx, env->win, 50 + i * 100, 40, color_norm(0, 255, 255), "REST");
+	else if (philosophe[i].status == 'D')
+		mlx_string_put(env->mlx, env->win, 50 + i * 100, 40, color_norm(255, 0, 0), "DEAD");
 	else
 		mlx_string_put(env->mlx, env->win, 50 + i * 100, 40, color_norm(0, 255, 255), "don't know");
 	mlx_string_put(env->mlx, env->win, 0 + i * 100, 60, color_norm(200, 200, 200), "life :");
@@ -103,17 +105,53 @@ void	wich_philo(t_win *env, int i)
 		ft_itoa(philosophe[i].life));
 }
 
+void	eb_put_pixel_to_img(t_img *img, int x, int y, int color)
+{
+	unsigned int	mgcv;
+	int				i;
+	t_win			*env;
+
+	env = env_init();
+	mgcv = mlx_get_color_value(env->mlx, color);
+	i = x * 4 + y * img->size_line;
+	img->data[i] = (mgcv & 0xFF);
+	img->data[i + 1] = (mgcv & 0xFF00) >> 8;
+	img->data[i + 2] = (mgcv & 0xFF0000) >> 16;
+}
+
+void	eb_clean_map(t_img *img)
+{
+	int		x;
+	int		y;
+
+	x = 0;
+	while (x <= WIDTH)
+	{
+		y = 0;
+		while (y <= HEIGHT)
+		{
+			eb_put_pixel_to_img(img, x, y, 0x000000);
+			y++;
+		}
+		x++;
+	}
+}
+
 void	show_philo(t_win *env, t_img *img)
 {
 	/*mlx_clear_window(env->mlx, env->win);*/
-	/*eb_clean_map(img);
-	if (img->load_ptr)
-		mlx_destroy_image(env->mlx, img->load_ptr);*/
-	/*img->img = mlx_new_image(env->mlx, WIDTH, HEIGHT);
+	if (img->img)
+		mlx_destroy_image(env->mlx, img->img);
+	img->img = mlx_new_image(env->mlx, WIDTH, HEIGHT);
 	img->data = mlx_get_data_addr(img->img, &img->bpp, &img->size_line
-		, &img->endian);*/
+		, &img->endian);
+
+	eb_clean_map(img);
+
 	/*img->load_ptr = choose_img("./images/philosophe.xpm", &img->x, &img->y);*/
 
+	mlx_put_image_to_window(env->mlx, env->win, img->img, 0, 0);
+	/*mlx_put_image_to_window(env->mlx, env->win, img->load_ptr, 0, 0);*/
 
 	int		i;
 
@@ -141,10 +179,9 @@ void	show_philo(t_win *env, t_img *img)
 		ft_itoa(philosophe[0].life));*/
 
 
-	/*mlx_put_image_to_window(env->mlx, env->win, img->load_ptr, 200, 0);*/
-	usleep(50000);
+	/*usleep(50000);*/
 	/*mlx_destroy_image(env->win, img->img);*/
-	show_philo(env, img);
+	/*show_philo(env, img);*/
 }
 
 int		eb_expose_hook(t_img *img)

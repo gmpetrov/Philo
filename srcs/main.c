@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 22:06:18 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/11 17:58:03 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	*life(void *data)
 	philo = (t_philo *)data;
 	while (42)
 	{
-		usleep(1000000);
+		usleep(50000);
 		if (philo->status != 'E')
 			philo->life -= 1;
 		if (philo->life <= 0)
