@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 17:58:03 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 18:49:54 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	init(void)
 	while (i < NB_PHILO)
 	{
 		philosophe[i].id = i;
-		philosophe[i].life = MAX_LIFE; 
+		philosophe[i].life = MAX_LIFE;
 		philosophe[i].status = 'R';
-		p_fork[i] = 0;	
+		p_fork[i] = 0;
 		p_fork[i] = 0;
 		pthread_create(&(philosophe[i].thread_philo),
 				NULL, actions, &(philosophe[i]));
@@ -82,7 +82,7 @@ int		main(void)
 	{
 		pthread_create(&(thread_life[i]), NULL, life, &(philosophe[i]));
 		i++;
-	}	
+	}
 	pthread_create(&thread_graphique, NULL, eb_mlx, NULL);
 	philo();
 	return (0);

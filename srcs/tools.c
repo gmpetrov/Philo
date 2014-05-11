@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/09 22:31:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/09 22:32:17 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/11 18:45:06 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	test(t_philo *philo)
 	t_philo *tmp;
 
 	tmp = philo;
-	while(42)
+	while (42)
 	{
 		ft_putnbr(tmp->id);
 		write(1, "\n", 1);
@@ -57,5 +57,3 @@ void	test(t_philo *philo)
 		tmp = tmp->next;
 	}
 }
-
-

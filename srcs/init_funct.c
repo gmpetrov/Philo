@@ -6,13 +6,13 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:57:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/07 18:15:07 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 18:47:23 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_data	*data_init(void)
+t_data		*data_init(void)
 {
 	static t_data	*data = NULL;
 
@@ -24,8 +24,7 @@ t_data	*data_init(void)
 	return (data);
 }
 
-
-t_win	*env_init(void)
+t_win		*env_init(void)
 {
 	static t_win	*win = NULL;
 
