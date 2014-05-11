@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 21:59:16 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/11 22:09:50 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	fuck(void)
 	i = 0;
 	while (i < NB_PHILO)
 	{
-		pthread_join(philosophe[i].thread_philo, NULL);
+		pthread_join(g_philosophe[i].thread_philo, NULL);
 		i++;
 	}
 }
@@ -29,16 +29,16 @@ void	init(void)
 	int	i;
 
 	i = 0;
-	pthread_mutex_init(&(forks), NULL);
+	pthread_mutex_init(&(g_forks), NULL);
 	while (i < NB_PHILO)
 	{
-		philosophe[i].id = i;
-		philosophe[i].life = MAX_LIFE;
-		philosophe[i].status = 'R';
-		p_fork[i] = 0;
-		p_fork[i] = 0;
-		pthread_create(&(philosophe[i].thread_philo),
-				NULL, actions, &(philosophe[i]));
+		g_philosophe[i].id = i;
+		g_philosophe[i].life = MAX_LIFE;
+		g_philosophe[i].status = 'R';
+		g_fork[i] = 0;
+		g_fork[i] = 0;
+		pthread_create(&(g_philosophe[i].thread_philo),
+				NULL, actions, &(g_philosophe[i]));
 		i++;
 	}
 }
@@ -57,7 +57,7 @@ void	*life(void *data)
 	while (42)
 	{
 		usleep(1000000);
-		pthread_mutex_lock(&forks);
+		pthread_mutex_lock(&g_forks);
 		if (philo->status != 'E')
 			philo->life -= 1;
 		if (philo->life <= 0)
@@ -67,7 +67,7 @@ void	*life(void *data)
 			ft_putstr("A philosophe is dead\n");
 			return (NULL);
 		}
-		pthread_mutex_unlock(&forks);
+		pthread_mutex_unlock(&g_forks);
 	}
 }
 
@@ -80,7 +80,7 @@ int		main(void)
 	i = 0;
 	while (i < NB_PHILO)
 	{
-		pthread_create(&(thread_life[i]), NULL, life, &(philosophe[i]));
+		pthread_create(&(thread_life[i]), NULL, life, &(g_philosophe[i]));
 		i++;
 	}
 	pthread_create(&thread_graphique, NULL, eb_mlx, NULL);

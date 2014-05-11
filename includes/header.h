@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:17:14 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 21:55:05 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 22:09:12 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@
 **	GLOBAL VARS
 */
 
-int				p_fork[NB_PHILO];
-t_philo			philosophe[NB_PHILO];
-pthread_mutex_t	forks;
+int				g_fork[NB_PHILO];
+t_philo			g_philosophe[NB_PHILO];
+pthread_mutex_t	g_forks;
 
 /*
 **	PROTOTYPES
@@ -66,6 +66,7 @@ int				eb_mlx_key_hook(int keycode);
 **	action.c
 */
 void			*actions(void *data);
+
 /*
 **	print.c
 */

@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/11 21:28:42 by ebaudet           #+#    #+#             */
-/*   Updated: 2014/05/11 21:39:40 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 22:06:14 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,16 @@ void	wich_philo(t_win *env, int i, int x, int y)
 		ft_itoa(i + 1));
 	mlx_string_put(env->mlx, env->win, 0 + x, 40 + y, color_norm(200, 200, 200),
 		"etat :");
-	if (philosophe[i].status == 'E')
+	if (g_philosophe[i].status == 'E')
 		mlx_string_put(env->mlx, env->win, 50 + x, 40 + y,
 			color_norm(0, 255, 0), "EAT");
-	else if (philosophe[i].status == 'T')
+	else if (g_philosophe[i].status == 'T')
 		mlx_string_put(env->mlx, env->win, 50 + x, 40 + y,
 			color_norm(0, 255, 255), "THINK");
-	else if (philosophe[i].status == 'R')
+	else if (g_philosophe[i].status == 'R')
 		mlx_string_put(env->mlx, env->win, 50 + x, 40 + y,
 			color_norm(0, 255, 255), "REST");
-	else if (philosophe[i].status == 'D')
+	else if (g_philosophe[i].status == 'D')
 		mlx_string_put(env->mlx, env->win, 50 + x, 40 + y,
 			color_norm(255, 0, 0), "DEAD");
 	else
@@ -57,7 +57,7 @@ void	wich_philo(t_win *env, int i, int x, int y)
 	mlx_string_put(env->mlx, env->win, 0 + x, 60 + y,
 		color_norm(200, 200, 200), "life :");
 	mlx_string_put(env->mlx, env->win, 50 + x, 60 + y,
-		color_life(philosophe[i].life), ft_itoa(philosophe[i].life));
+		color_life(g_philosophe[i].life), ft_itoa(g_philosophe[i].life));
 }
 
 void	show_philo(t_win *env, t_img *img)
