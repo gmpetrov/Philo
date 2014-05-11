@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/10 19:46:29 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 20:27:33 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/11 21:32:41 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,16 @@ static void		rest(t_philo *philo)
 	usleep(REST_T * 1000000);
 }
 
+static void		timeout(time_t *start)
+{
+	if (time(NULL) > *start + TIMEOUT)
+	{
+		fuck();
+		ft_putstr("Now, it is time... To DAAAAAAAANCE!!!\n");
+		exit(0);
+	}
+}
+
 void			*actions(void *data)
 {
 	t_philo	*philo;
@@ -62,12 +72,7 @@ void			*actions(void *data)
 	start = time(NULL);
 	while (42)
 	{	
-		if (time(NULL) > start + TIMEOUT)
-		{
-			fuck();
-			ft_putstr("Now, it is time... To DAAAAAAAANCE!!!\n");
-			exit(0);
-		}
+		timeout(&start);
 		pthread_mutex_lock(&forks);
 		left = p_fork[philo->id];
 		right = p_fork[(philo->id + 1) % NB_PHILO];
@@ -75,11 +80,6 @@ void			*actions(void *data)
 			eat(philo);
 		else if (left == 0 && right == 1 && philo->status == 'R')
 			think(philo);
-		else if (philo->status == 'D')
-		{
-			fuck();
-			break ;
-		}
 		else
 			rest(philo);
 	}

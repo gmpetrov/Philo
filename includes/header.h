@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:17:14 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 20:14:23 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/11 21:32:20 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@
 **	MACRO FOR PHILO
 */
 
-# define MAX_LIFE	10
-# define EAT_T		3
-# define REST_T		8
-# define THINK_T	22
-# define TIMEOUT	15
+# define MAX_LIFE	5
+# define EAT_T		2
+# define REST_T		3
+# define THINK_T	3
+# define TIMEOUT	60
 # define NB_PHILO	7
 /*
 **	INCLUDE
