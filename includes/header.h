@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:17:14 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 21:36:30 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 21:55:05 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@
 # define THINK_T	3
 # define TIMEOUT	60
 # define NB_PHILO	7
+
 /*
 **	INCLUDE
 */
+
 # include <mlx.h>
 # include <pthread.h>
 # include "libft.h"
@@ -43,9 +45,11 @@
 /*
 **	GLOBAL VARS
 */
+
 int				p_fork[NB_PHILO];
 t_philo			philosophe[NB_PHILO];
 pthread_mutex_t	forks;
+
 /*
 **	PROTOTYPES
 */
