@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:51:58 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/10 17:59:42 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/11 23:20:43 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,6 @@ typedef struct		s_img
 	int				x;
 	int				y;
 }					t_img;
-
-typedef struct		s_data
-{
-	char			*scene_name;
-	char			origin;
-	char			dir;
-	char			color;
-	int				win_size_x;
-	int				win_size_y;
-}					t_data;
 
 typedef struct		s_philo
 {

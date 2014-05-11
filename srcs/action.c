@@ -6,10 +6,11 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/10 19:46:29 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 22:23:43 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 23:38:15 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <mlx.h>
 #include "header.h"
 #include "libft.h"
 
@@ -54,9 +55,18 @@ static void		rest(t_philo *philo)
 
 static void		timeout(time_t *start)
 {
+	t_win	*env;
+	t_img	*img;
+
 	if (time(NULL) > *start + (int)TIMEOUT)
 	{
 		fuck();
+		img = img_init();
+		env = env_init();
+		if (img->img)
+			mlx_destroy_image(env->mlx, img->img);
+		free(img);
+		free(env);
 		ft_putstr("Now, it is time... To DAAAAAAAANCE!!!\n");
 		exit(0);
 	}

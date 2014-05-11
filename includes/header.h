@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:17:14 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 22:28:31 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 23:28:06 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@
 **	MACRO FOR PHILO
 */
 
-# define MAX_LIFE	5
+# define MAX_LIFE	10
 # define EAT_T		2
 # define REST_T		3
 # define THINK_T	3
-# define TIMEOUT	60
+# define TIMEOUT	30
 # define NB_PHILO	7
 
 /*
@@ -53,7 +53,6 @@ pthread_mutex_t	g_forks;
 */
 
 void			fuck(void);
-t_data			*data_init(void);
 t_win			*env_init(void);
 t_img			*img_init(void);
 void			*eb_mlx(void *unuse);

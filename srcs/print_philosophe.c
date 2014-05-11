@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/11 21:28:42 by ebaudet           #+#    #+#             */
-/*   Updated: 2014/05/11 22:20:29 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 23:15:39 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	wich_philo(t_win *env, int i, int x, int y)
 			color_norm(0, 255, 0), "EAT");
 	else if (g_philosophe[i].status == 'T')
 		mlx_string_put(env->mlx, env->win, 50 + x, 40 + y,
-			color_norm(0, 255, 255), "THINK");
+			color_norm(0xF5, 0xDA, 0x81), "THINK");
 	else if (g_philosophe[i].status == 'R')
 		mlx_string_put(env->mlx, env->win, 50 + x, 40 + y,
-			color_norm(0, 255, 255), "REST");
+			color_norm(0xFA, 0x58, 0xAC), "REST");
 	else if (g_philosophe[i].status == 'D')
 		mlx_string_put(env->mlx, env->win, 50 + x, 40 + y,
 			color_norm(255, 0, 0), "DEAD");

@@ -3,28 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_funct.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/07 16:57:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 22:23:10 by ebaudet          ###   ########.fr       */
+/*   Updated: 2014/05/11 23:20:47 by ebaudet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include "header.h"
 #include "libft.h"
-
-t_data		*data_init(void)
-{
-	static t_data	*data = NULL;
-
-	if (data == NULL)
-	{
-		if (!(data = (t_data *)malloc(sizeof(t_data))))
-			ft_error("erreur malloc");
-	}
-	return (data);
-}
 
 t_win		*env_init(void)
 {
