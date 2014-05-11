@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 22:45:22 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/11 22:52:29 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,6 @@ void	init(void)
 	}
 }
 
-void	philo(void)
-{
-	init();
-	fuck();
-}
-
 void	*life(void *data)
 {
 	t_philo	*philo;
@@ -85,6 +79,7 @@ int		main(void)
 		i++;
 	}
 	pthread_create(&thread_graphique, NULL, eb_mlx, NULL);
-	philo();
+	init();
+	fuck();
 	return (0);
 }
