@@ -6,7 +6,7 @@
 /*   By: ebaudet <ebaudet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/05/06 20:09:52 by gpetrov           #+#    #+#             */
-/*   Updated: 2014/05/11 20:28:41 by gpetrov          ###   ########.fr       */
+/*   Updated: 2014/05/11 20:54:40 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	*life(void *data)
 			philo->life -= 1;
 		if (philo->life <= 0)
 		{
-			fuck();
-			ft_putstr("A philosophe is dead\n");
 			philo->status = 'D';	
+			fuck();
+			ft_putstr("A philosophe is dead\n");	
 			return (NULL);
 		}
 		pthread_mutex_unlock(&forks);
